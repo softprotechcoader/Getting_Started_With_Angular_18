@@ -27,7 +27,7 @@ export class UserComponent{
       <div>No, the server is not running</div>
     }
     @for (OS of operetingSystems; track OS.id){
-      {{OS.name}}
+      <p>{{OS.name}}</p>
     }
     @for (user of users; track user.id){
       <p>{{user.name}}</p>
