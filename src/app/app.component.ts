@@ -20,6 +20,12 @@ export class UserComponent{
     <section>
     <app-user />
     </section>
+    @if(isServerRunning){
+      <div>Yes, the server is running</div>
+    }
+    @else{
+      <div>No, the server is not running</div>
+    }
   `,
   styles: `
     :host {
@@ -30,5 +36,7 @@ export class UserComponent{
   imports: [UserComponent]
 })
 export class AppComponent {
-  city = 'San Francisco'
+  city = 'San Francisco';
+
+  isServerRunning:boolean = true;
 }
