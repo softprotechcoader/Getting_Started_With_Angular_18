@@ -32,6 +32,10 @@ export class UserComponent{
     @for (user of users; track user.id){
       <p>{{user.name}}</p>
     }
+    <!-- contentEditable enables to edit the content of div -->
+
+    <div [contentEditable] = "isEditable">This is a Div</div>
+    
 
   `,
   styles: `
@@ -47,6 +51,8 @@ export class AppComponent {
 
   isServerRunning:boolean = true;
 
+  isEditable : boolean = true;
+
   operetingSystems :{id:string, name:string}[] = [
     {id: 'win', name: 'Windows'}, 
     {id: 'osx', name: 'MacOS'}, 
@@ -58,4 +64,6 @@ export class AppComponent {
       {id: 2, name: 'Rachel'}, 
       {id: 3, name: 'Jessica'}, 
       {id: 4, name: 'Poornima'}];
+
 }
+
