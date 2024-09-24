@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 
 @Component({
   selector: 'app-user',
   template: `
-  UserName :{{ username }}`,
+  UserName :{{ username }}
+  <p>This user Name is: {{ name }}</p>
+  `,
   standalone: true,
 
 })
 export class UserComponent {
   username = ' YoungTech ';
+  @Input() name = '';
 }
 
 
@@ -16,9 +19,12 @@ export class UserComponent {
 @Component({
   selector: 'app-root',
   template: `
+
+   <!-- <app-user name="Aryan" > -->
+
     Hello {{city}} , {{1+1}}
     <section>
-    <app-user />
+    <app-user name="Aryan" />
     </section>
     @if(isServerRunning){
       <div>Yes, the server is running</div>
@@ -59,6 +65,8 @@ export class UserComponent {
   imports: [UserComponent]
 })
 export class AppComponent {
+
+  
     message: string = '';
   onMouseOver(){
     this.message = "Way to Go 🚀";
