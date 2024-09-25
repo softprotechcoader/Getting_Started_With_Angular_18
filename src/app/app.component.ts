@@ -1,4 +1,5 @@
 import { Component, Input, input } from '@angular/core';
+import { ChildComponent } from './child/child.component';
 
 @Component({
   selector: 'app-user',
@@ -21,6 +22,8 @@ export class UserComponent {
   template: `
 
    <!-- <app-user name="Aryan" > -->
+   <app-child (addItemEvent)="addItem($event)" />
+    <p>🐢 all the way down {{ items.length }}</p>
 
     Hello {{city}} , {{1+1}}
     <section>
@@ -62,9 +65,17 @@ export class UserComponent {
     }
   `,
   standalone: true,
-  imports: [UserComponent]
+  imports: [UserComponent, ChildComponent]
 })
 export class AppComponent {
+  // ********Component Communication with @Output***********************
+
+  items = new Array();
+
+  addItem(item:string){
+    this.items.push(item);
+  }
+// ********************************************************
 
   
     message: string = '';
