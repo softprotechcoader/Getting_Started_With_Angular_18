@@ -13,8 +13,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styles: `.btn { padding: 5px; }`
 })
 export class ChildComponent {
-  @Output () addItemEvent = new EventEmitter<string>();
+  @Output () 
+    addItemEvent: EventEmitter<string> = new EventEmitter<string>();
   addItem(){
-    this.addItemEvent.emit('🐢');
+    this.addItemEvent.emit('🐢 Data from Child Component');
 }
 }
